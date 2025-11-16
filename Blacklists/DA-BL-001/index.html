@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Blacklist - Official Announcement</title>
+    <link rel="icon" type="image/x-icon" href="https://ik.imagekit.io/tycncf0zq0/78652ee674e0ab851c44b0106f190b87.webp?updatedAt=1763084105339">
+    <link rel="shortcut icon" href="https://ik.imagekit.io/tycncf0zq0/78652ee674e0ab851c44b0106f190b87.webp?updatedAt=1763084105339">
+    <link rel="apple-touch-icon" href="https://ik.imagekit.io/tycncf0zq0/78652ee674e0ab851c44b0106f190b87.webp?updatedAt=1763084105339">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ff9800;
+            --primary-dark: #e65100;
+            --secondary: #ffeb3b;
+            --accent: #ff5722;
+            --light: #fffde7;
+            --dark: #212121;
+            --gray: #757575;
+            --warning: #ffc107;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fff9c4 0%, #ffe0b2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            padding: 30px 0;
+            border-bottom: 5px solid var(--primary-dark);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path fill="%23ffffff" d="M50,5 L75,35 L65,60 L35,60 L25,35 Z"/></svg>');
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .case-id {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+        }
+        
+        .announcement-section {
+            background-color: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--primary);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .blacklisted-user {
+            background-color: #fff8e1;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .blacklisted-user:hover {
+            transform: translateX(5px);
+        }
+        
+        .user-tag {
+            font-weight: bold;
+            color: var(--accent);
+            font-size: 1.3rem;
+        }
+        
+        .user-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            margin-right: 10px;
+            color: var(--primary-dark);
+            min-width: 120px;
+        }
+        
+        .evidence-section {
+            margin: 40px 0;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.5s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .evidence-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ffcc80;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: popIn 0.6s ease forwards;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        @keyframes popIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .evidence-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .evidence-img {
+            width: 100%;
+            height: 350px;
+            object-fit: contain;
+            border-bottom: 1px solid #ffcc80;
+            transition: transform 0.5s ease;
+            background-color: #f5f5f5;
+            padding: 10px;
+        }
+        
+        .evidence-item:hover .evidence-img {
+            transform: scale(1.05);
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            padding: 30px 0;
+            margin-top: 40px;
+            text-align: center;
+            color: white;
+        }
+        
+        .signature {
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--gray);
+        }
+        
+        .official-stamp {
+            color: var(--accent);
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: #fff8e1;
+            border-radius: 5px;
+        }
+        
+        .warning-banner {
+            background-color: #fff3e0;
+            border: 2px solid var(--warning);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+            }
+        }
+        
+        .warning-icon {
+            color: var(--warning);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .action-box {
+            background-color: #e8f5e9;
+            border: 2px solid #4caf50;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .action-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .action-title {
+            color: #2e7d32;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .action-title i {
+            margin-right: 10px;
+        }
+        
+        .discord-report {
+            background-color: #e3f2fd;
+            border: 2px solid #2196f3;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .discord-report:hover {
+            transform: translateY(-5px);
+        }
+        
+        .discord-title {
+            color: #1565c0;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .discord-title i {
+            margin-right: 10px;
+        }
+        
+        .date-badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        
+        .severity-indicator {
+            display: inline-flex;
+            align-items: center;
+            background-color: #ffebee;
+            color: #c62828;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        
+        .severity-indicator i {
+            margin-right: 5px;
+        }
+        
+        .discord-invite {
+            display: inline-flex;
+            align-items: center;
+            background-color: #5865F2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .discord-invite:hover {
+            background-color: #4752C4;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .discord-invite i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            z-index: 1001;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+        }
+        
+        .ping-spam-info {
+            background-color: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .ping-spam-info strong {
+            color: #c62828;
+        }
+        
+        .behavior-section {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .behavior-title {
+            color: #e65100;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .behavior-title i {
+            margin-right: 10px;
+        }
+        
+        .behavior-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .behavior-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .behavior-list li:before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 10px;
+        }
+        
+        .zero-tolerance {
+            background-color: #ffebee;
+            border: 2px solid #f44336;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .zero-tolerance strong {
+            color: #c62828;
+            font-size: 1.2rem;
+        }
+        
+        .activity-log {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            max-height: 600px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+        }
+        
+        .log-entry {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .log-entry:last-child {
+            border-bottom: none;
+        }
+        
+        .log-time {
+            color: #666;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .log-user {
+            color: #e65100;
+            font-weight: bold;
+        }
+        
+        .log-action {
+            color: #333;
+        }
+        
+        .log-highlight {
+            background-color: #fff3cd;
+            border-left: 3px solid #ffc107;
+        }
+        
+        .log-section {
+            margin-top: 30px;
+        }
+        
+        .log-section-title {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        @media (max-width: 768px) {
+            .evidence-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .announcement-section {
+                padding: 20px;
+            }
+            
+            .user-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .evidence-img {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .evidence-img {
+                height: 250px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="https://ik.imagekit.io/tycncf0zq0/78652ee674e0ab851c44b0106f190b87.webp?updatedAt=1763084105339" alt="Organization Logo" class="logo">
+            </div>
+            <div class="header-content">
+                <h1>Server Blacklist</h1>
+                <p class="subtitle">Official Staff Announcement & Disciplinary Action</p>
+                <div class="case-id">Case ID: DA-BL-001</div>
+                <a href="https://discord.gg/H6uDaMPHE6" class="discord-invite" target="_blank">
+                    <i class="fab fa-discord"></i> Join Our Discord
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="announcement-section">
+            <h2 class="section-title"><i class="fas fa-exclamation-circle"></i> Blacklist Notice</h2>
+            
+            <div class="warning-banner">
+                <i class="fas fa-exclamation-triangle warning-icon"></i>
+                <div>
+                    <strong>Important Notice:</strong> This announcement contains sensitive information regarding staff disciplinary actions.
+                </div>
+            </div>
+            
+            <div class="date-badge">
+                <i class="far fa-calendar"></i> Incident Date: Saturday, November 15, 2025
+            </div>
+            
+            <div class="severity-indicator">
+                <i class="fas fa-skull-crossbones"></i> SEVERITY: CRITICAL
+            </div>
+            
+            <div class="blacklisted-user">
+                <p class="user-tag">@smakkthatthang</p>
+                <p>Former Director of the Florida State role-play division</p>
+                
+                <div class="user-info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Username:</span>
+                        <span>smakkthatthang</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Discord ID:</span>
+                        <span>1127585771352752239</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Account Creation:</span>
+                        <span>Sunday, July 9, 2023 8:03 AM (2 years ago)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Position:</span>
+                        <span>Former Director - Florida State RP Division</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p>This is to inform the community that <strong>@smakkthatthang</strong>, formerly a Director of the Florida State role-play division, is no longer affiliated with our staff team.</p>
+            
+            <div class="ping-spam-info">
+                <p><strong>Mass Ping Spam Incident:</strong> The individual organized and participated in a department raid on Saturday, November 15, 2025, spamming the @everyone ping in Discord over 15 times repeatedly, causing significant disruption to our community operations.</p>
+            </div>
+            
+            <div class="behavior-section">
+                <h3 class="behavior-title"><i class="fas fa-user-slash"></i> Pattern of Extreme Insubordination & Disrespect</h3>
+                <ul class="behavior-list">
+                    <li><strong>Complete disregard for authority:</strong> Repeatedly ignored direct instructions from superiors and showed zero respect for chain of command</li>
+                    <li><strong>Constant insubordination:</strong> Refused to follow established protocols and consistently challenged leadership decisions without valid justification</li>
+                    <li><strong>Extreme disrespect:</strong> Almost every single message sent in our Discord community was negative, inappropriate, and demonstrated complete lack of professionalism</li>
+                    <li><strong>Toxic communication:</strong> Engaged in personal attacks, including making derogatory comments about physical appearance such as "my personality is because I wear a hat no"</li>
+                    <li><strong>Consistent negativity:</strong> Created a hostile environment through persistently negative and disruptive behavior</li>
+                    <li><strong>Zero accountability:</strong> Refused to take responsibility for actions and consistently blamed others for issues</li>
+                </ul>
+            </div>
+            
+            <p>This decision follows a thorough review of repeated and serious incidents, including insubordination and conduct that violates our core standards of professionalism.</p>
+            
+            <div class="zero-tolerance">
+                <p><strong>ZERO TOLERANCE POLICY:</strong> We will not tolerate or accept any members in our community that act this way. Such behavior undermines our community values and creates a toxic environment for all members.</p>
+            </div>
+            
+            <div class="action-box">
+                <div class="action-title"><i class="fas fa-hammer"></i> Disciplinary Actions Taken</div>
+                <ul>
+                    <li>Immediate removal from Director position</li>
+                    <li>Permanent blacklist from staff team</li>
+                    <li>Permanent server ban</li>
+                    <li>Reporting to Discord for Terms of Service violations</li>
+                </ul>
+            </div>
+            
+            <p>To ensure the continued integrity of our community, we will be implementing revised staff guidelines and terms of service. We thank you for your trust and support.</p>
+            
+            <div class="discord-report">
+                <div class="discord-title"><i class="fab fa-discord"></i> Discord Reporting</div>
+                <p>We strongly recommend reporting this user to Discord for targeted harassment and spam violations. Include the following information in your report:</p>
+                <ul>
+                    <li>Username: smakkthatthang</li>
+                    <li>ID: 1127585771352752239</li>
+                    <li>Reference: Organized department raid with mass @everyone pings (over 15 times)</li>
+                    <li>Evidence of targeted harassment, spam, and toxic behavior</li>
+                </ul>
+            </div>
+            
+            <div class="signature">
+                <p>Officially,</p>
+                <p><strong>Elijah</strong></p>
+                <p class="official-stamp">Founder</p>
+            </div>
+        </section>
+        
+        <section class="announcement-section">
+            <h2 class="section-title"><i class="fas fa-clipboard-list"></i> Complete Activity Log</h2>
+            <p>Full server activity log showing all actions taken by @smakkthatthang during the incident:</p>
+            
+            <div class="activity-log">
+                <div class="log-section">
+                    <h3 class="log-section-title">User Departure & Ban</h3>
+                    
+                    <div class="log-entry log-highlight">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">@smakkthatthang</span>
+                        <span class="log-action">has left a voice channel. Channel: 《:turkey:》Lounge 1 Member Count: 3</span>
+                    </div>
+                    
+                    <div class="log-entry log-highlight">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">@smakkthatthang</span>
+                        <span class="log-action">has left the server! Member Count: 107</span>
+                    </div>
+                    
+                    <div class="log-entry log-highlight">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">@smakkthatthang</span>
+                        <span class="log-action">Previous Roles: @𝐅𝐒𝐑𝐏 | Director, @𝐅𝐒𝐑𝐏 | Board of Directors, @Instructor, @Staff Team, @Shift Supervisor, @Management Support Team, @Staff Support Team, @50/50, @Strike 1, @Diamond Plus Tier, @Department Head, @Department Command, @Department Staff, @Department Member, @Federal Bureau of Investigation Staff, @Federal Bureau of Investigation, @Community Member, @Verified, @Tier 2 Staff Perk, @Tier 1 Staff Perk, @Star's Office Key, @Vynvox Office Key, @Stormboy's Office Key, @Taylor's Office Key, @James's Office Key, @Pokinhl's Office Key, @Smakky's Office Key</span>
+                    </div>
+                    
+                    <div class="log-entry log-highlight">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">Member Banned</span>
+                        <span class="log-action">User: @smakkthatthang User ID: 1127585771352752239</span>
+                    </div>
+                </div>
+                
+                <div class="log-section">
+                    <h3 class="log-section-title">Moderation Action</h3>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">9:03 PM</span>
+                        <span class="log-user">@elijah.s.dev</span>
+                        <span class="log-action">executed a command in 《:speech_balloon:》general. Command: /ban Message Content: /ban 1127585771352752239 Raiding Department</span>
+                    </div>
+                </div>
+                
+                <div class="log-section">
+                    <h3 class="log-section-title">Server Impact & Member Departures</h3>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">8:59 PM</span>
+                        <span class="log-user">@xdemon0177_38709</span>
+                        <span class="log-action">has left the server! Member Count: 131</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">8:59 PM</span>
+                        <span class="log-user">@.simpleserious</span>
+                        <span class="log-action">@WealthKeeper has left the server! Member Count: 130</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">8:59 PM</span>
+                        <span class="log-user">@xmq.nsx</span>
+                        <span class="log-action">@v has left the server! Member Count: 129 Previous Roles: @Community Member, @Verified, @✔ | Partnership Ping, @✔ | Session Ping, @✔ | Application Ping, @✔ | Department Pings, @✔ | Dead Chat Ping, @Tier 1 Staff Perk</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">8:59 PM</span>
+                        <span class="log-user">@praise1432</span>
+                        <span class="log-action">has left the server! Member Count: 128</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">8:59 PM</span>
+                        <span class="log-user">@thatboijerry1324_91150</span>
+                        <span class="log-action">@Thatboijerry has left the server! Member Count: 127</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">8:59 PM</span>
+                        <span class="log-user">@spencer550318</span>
+                        <span class="log-action">@Spencer has left the server! Member Count: 126</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">8:59 PM</span>
+                        <span class="log-user">@sam__better</span>
+                        <span class="log-action">@sam has left the server! Member Count: 125</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">8:59 PM</span>
+                        <span class="log-user">@richsportscars151</span>
+                        <span class="log-action">@Rich ( 5A-196) has left the server! Member Count: 124</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">8:59 PM</span>
+                        <span class="log-user">@rashadluvsgamess</span>
+                        <span class="log-action">has left the server! Member Count: 123</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">8:59 PM</span>
+                        <span class="log-user">@ranis1052</span>
+                        <span class="log-action">has left the server! Member Count: 122</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">8:59 PM</span>
+                        <span class="log-user">@wendell09549</span>
+                        <span class="log-action">has left the server! Member Count: 121</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">8:59 PM</span>
+                        <span class="log-user">@optimusprime201113</span>
+                        <span class="log-action">@OptimusPrime201113 has left the server! Member Count: 120</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">8:59 PM</span>
+                        <span class="log-user">@ogchanizx_17392</span>
+                        <span class="log-action">@OG CHANIZX has left the server! Member Count: 119</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">@corbynroth1</span>
+                        <span class="log-action">@n0t_Corbyn1 has left the server! Member Count: 118</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">@law9114</span>
+                        <span class="log-action">@Mrkenny85 has left the server! Member Count: 117</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">@gravitygamer0640</span>
+                        <span class="log-action">@Moneyrain123456789 has left the server! Member Count: 116</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">@mandolorian_yoda_871</span>
+                        <span class="log-action">has left the server! Member Count: 115</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">@lucian_blu</span>
+                        <span class="log-action">@Lucian Chanel has left the server! Member Count: 114</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">@itsaf80</span>
+                        <span class="log-action">@ls430hl has left the server! Member Count: 113</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">@lilc2167866</span>
+                        <span class="log-action">@Lil c 2167866 has left the server! Member Count: 112</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">@parker748</span>
+                        <span class="log-action">has left the server! Member Count: 111</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">@blakelalm</span>
+                        <span class="log-action">@Landon† has left the server! Member Count: 110</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">@kinaj857_54487</span>
+                        <span class="log-action">has left the server! Member Count: 109</span>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <span class="log-time">9:00 PM</span>
+                        <span class="log-user">@killadirm</span>
+                        <span class="log-action">@Killadirm has left the server! Member Count: 108</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="warning-banner">
+                <i class="fas fa-chart-line warning-icon"></i>
+                <div>
+                    <strong>Server Impact:</strong> The department raid organized by @smakkthatthang resulted in over 25 members leaving the server within minutes, reducing the member count from 131 to 107.
+                </div>
+            </div>
+        </section>
+        
+        <section class="evidence-section">
+            <h2 class="section-title"><i class="fas fa-camera"></i> Evidence Documentation</h2>
+            <p>Note: This evidence does not contain everything or anything said in voice chats.</p>
+            
+            <div class="evidence-grid">
+                <div class="evidence-item">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/Screenshot%202025-11-15%20213820.png?updatedAt=1763264414027" alt="Evidence 1" class="evidence-img">
+                </div>
+                <div class="evidence-item">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/Evidence_1_Director_Infraction.png?updatedAt=1763264414264" alt="Evidence 2" class="evidence-img">
+                </div>
+                <div class="evidence-item">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/Screenshot%202025-11-15%20213902.png?updatedAt=1763264414045" alt="Evidence 3" class="evidence-img">
+                </div>
+                <div class="evidence-item">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/Screenshot%202025-11-15%20213858.png?updatedAt=1763264414073" alt="Evidence 4" class="evidence-img">
+                </div>
+                <div class="evidence-item">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/Screenshot%202025-11-15%20213907.png?updatedAt=1763264413975" alt="Evidence 5" class="evidence-img">
+                </div>
+                <div class="evidence-item">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/Screenshot%202025-11-15%20213853.png?updatedAt=1763264413832" alt="Evidence 6" class="evidence-img">
+                </div>
+                <div class="evidence-item">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/Screenshot%202025-11-15%20213824.png?updatedAt=1763264413989" alt="Evidence 7" class="evidence-img">
+                </div>
+                <div class="evidence-item">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/Screenshot%202025-11-15%20213832.png?updatedAt=1763264413646" alt="Evidence 8" class="evidence-img">
+                </div>
+                <div class="evidence-item">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/Screenshot%202025-11-15%20213846.png?updatedAt=1763264413694" alt="Evidence 9" class="evidence-img">
+                </div>
+                <div class="evidence-item">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/Screenshot%202025-11-15%20213839.png?updatedAt=1763264413876" alt="Evidence 10" class="evidence-img">
+                </div>
+                <div class="evidence-item">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/Screenshot%202025-11-15%20213910.png?updatedAt=1763264413795" alt="Department Raid Evidence" class="evidence-img">
+                </div>
+                <div class="evidence-item">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/Screenshot%202025-11-15%20211538.png?updatedAt=1763264414005" alt="Raid Aftermath" class="evidence-img">
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>This announcement serves as an official record of disciplinary action taken to maintain community standards.</p>
+            <p><strong>Case ID: DA-BL-001</strong></p>
+            <a href="https://discord.gg/H6uDaMPHE6" class="discord-invite" target="_blank" style="margin: 10px 0;">
+                <i class="fab fa-discord"></i> Join Our Discord Server
+            </a>
+            <p class="official-stamp">Official Document</p>
+        </div>
+    </footer>
+    
+    <div class="modal" id="imageModal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    
+    <script>
+        // Image modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeModal = document.getElementById('closeModal');
+        
+        // Add click events to all evidence images
+        document.querySelectorAll('.evidence-img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                modalImg.src = this.src;
+            });
+        });
+        
+        // Close modal when clicking X
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Stagger animation for evidence items
+        document.addEventListener('DOMContentLoaded', function() {
+            const evidenceItems = document.querySelectorAll('.evidence-item');
+            evidenceItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
