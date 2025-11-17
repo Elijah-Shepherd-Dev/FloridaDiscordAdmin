@@ -93,7 +93,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px 0;
+            padding: 30px 0;
         }
 
         .logo-container {
@@ -102,41 +102,40 @@
         }
 
         .logo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
-            margin-right: 15px;
-            border: 3px solid white;
+            margin-right: 20px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
 
         .header-titles h1 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             color: white;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
         }
 
         .header-titles .subtitle {
             color: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
         .admin-access {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .admin-badge {
             background: rgba(255, 255, 255, 0.2);
             color: white;
-            padding: 8px 15px;
+            padding: 10px 18px;
             border-radius: 20px;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .nav-container {
@@ -159,11 +158,12 @@
             display: block;
             color: white;
             text-decoration: none;
-            padding: 15px 20px;
+            padding: 18px 24px;
             transition: var(--transition);
             border-bottom: 3px solid transparent;
             font-weight: 500;
             white-space: nowrap;
+            font-size: 1.05rem;
         }
 
         .main-nav a:hover, .main-nav a.active {
@@ -172,20 +172,20 @@
         }
 
         .main-nav i {
-            margin-right: 8px;
+            margin-right: 10px;
         }
 
         /* ===== DASHBOARD ===== */
         .dashboard {
-            padding: 30px 0;
+            padding: 40px 0;
         }
 
         .welcome-banner {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
-            padding: 30px;
+            padding: 40px;
             border-radius: var(--border-radius-xl);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             box-shadow: var(--shadow-lg);
             position: relative;
             overflow: hidden;
@@ -202,51 +202,57 @@
         }
 
         .welcome-banner h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .welcome-banner p {
+            font-size: 1.2rem;
+            max-width: 800px;
         }
 
         .portal-links {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
         .portal-card {
             background: white;
-            padding: 30px;
+            padding: 35px;
             border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
-            border-left: 4px solid var(--primary);
+            border-left: 5px solid var(--primary);
         }
 
         .portal-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
         }
 
         .portal-icon {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .portal-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
             color: var(--dark);
         }
 
         .portal-card p {
             color: var(--gray);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
         }
 
         .btn {
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
             border-radius: var(--border-radius);
             font-weight: 600;
@@ -254,8 +260,9 @@
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             text-decoration: none;
+            font-size: 1rem;
         }
 
         .btn-primary {
@@ -274,41 +281,46 @@
             color: var(--primary);
         }
 
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
         /* ===== SECTIONS ===== */
         .section {
             background: white;
             border-radius: var(--border-radius-xl);
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 40px;
+            margin-bottom: 40px;
             box-shadow: var(--shadow);
         }
 
         .section-header {
             display: flex;
-            justify-content: between;
+            justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
             border-bottom: 2px solid var(--light-alt);
         }
 
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--primary-dark);
             display: flex;
             align-items: center;
         }
 
         .section-title i {
-            margin-right: 10px;
+            margin-right: 12px;
             color: var(--accent);
         }
 
         /* ===== ANNOUNCEMENTS ===== */
         .announcements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 25px;
         }
 
         .announcement-card {
@@ -317,38 +329,42 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border-left: 4px solid var(--primary);
+            border-left: 5px solid var(--primary);
         }
 
         .announcement-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
         }
 
         .announcement-header {
-            padding: 20px;
+            padding: 25px;
             border-bottom: 1px solid var(--light-alt);
         }
 
         .announcement-title {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
             color: var(--dark);
         }
 
         .announcement-meta {
             display: flex;
-            gap: 15px;
+            gap: 18px;
             color: var(--gray);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .announcement-body {
-            padding: 20px;
+            padding: 25px;
+        }
+
+        .announcement-body p {
+            font-size: 1.05rem;
         }
 
         .announcement-actions {
-            padding: 15px 20px;
+            padding: 20px 25px;
             background: var(--light);
             display: flex;
             justify-content: space-between;
@@ -356,9 +372,9 @@
         }
 
         .badge {
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
         }
 
@@ -384,14 +400,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 25px;
             background: var(--primary);
             color: white;
         }
 
+        .calendar-header h3 {
+            font-size: 1.5rem;
+        }
+
         .calendar-nav {
             display: flex;
-            gap: 10px;
+            gap: 12px;
         }
 
         .calendar-grid {
@@ -400,17 +420,19 @@
         }
 
         .calendar-weekday {
-            padding: 15px;
+            padding: 18px;
             text-align: center;
             background: var(--light-alt);
             font-weight: 600;
+            font-size: 1.05rem;
         }
 
         .calendar-day {
-            padding: 15px;
-            min-height: 100px;
+            padding: 18px;
+            min-height: 120px;
             border: 1px solid var(--light-alt);
             position: relative;
+            font-size: 1.05rem;
         }
 
         .calendar-day.other-month {
@@ -425,10 +447,10 @@
         .calendar-event {
             background: var(--primary);
             color: white;
-            padding: 3px 8px;
+            padding: 5px 10px;
             border-radius: 4px;
-            font-size: 0.8rem;
-            margin-top: 5px;
+            font-size: 0.85rem;
+            margin-top: 8px;
             cursor: pointer;
         }
 
@@ -439,8 +461,8 @@
         /* ===== RESOURCES ===== */
         .resources-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
         }
 
         .resource-card {
@@ -452,52 +474,59 @@
         }
 
         .resource-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
         }
 
         .resource-icon {
-            height: 120px;
+            height: 150px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: white;
         }
 
         .resource-body {
-            padding: 20px;
+            padding: 25px;
         }
 
         .resource-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
             color: var(--dark);
         }
 
         .resource-desc {
             color: var(--gray);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
         }
 
         /* ===== FOOTER ===== */
         footer {
             background: var(--dark);
             color: white;
-            padding: 40px 0;
-            margin-top: 50px;
+            padding: 50px 0;
+            margin-top: 60px;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
         }
 
         .footer-section h3 {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: var(--secondary);
+            font-size: 1.3rem;
+        }
+
+        .footer-section p {
+            color: var(--gray-light);
+            line-height: 1.8;
         }
 
         .footer-links {
@@ -505,23 +534,25 @@
         }
 
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-links a {
             color: var(--gray-light);
             text-decoration: none;
             transition: var(--transition);
+            font-size: 1.05rem;
         }
 
         .footer-links a:hover {
             color: white;
+            padding-left: 5px;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
-            margin-top: 30px;
+            padding-top: 40px;
+            margin-top: 40px;
             border-top: 1px solid var(--dark-alt);
             color: var(--gray-light);
         }
@@ -531,7 +562,7 @@
             .announcements-grid,
             .resources-grid,
             .portal-links {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             }
         }
 
@@ -539,7 +570,13 @@
             .header-top {
                 flex-direction: column;
                 text-align: center;
-                gap: 20px;
+                gap: 25px;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
             }
         }
 
@@ -557,16 +594,37 @@
             .main-nav {
                 justify-content: flex-start;
             }
+            
+            .welcome-banner {
+                padding: 30px;
+            }
+            
+            .welcome-banner h2 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 30px;
+            }
         }
 
         @media (max-width: 576px) {
             .welcome-banner h2 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
-
+            
             .calendar-day {
-                min-height: 80px;
-                padding: 10px;
+                min-height: 100px;
+                padding: 15px;
+            }
+            
+            .header-titles h1 {
+                font-size: 1.8rem;
+            }
+            
+            .admin-access {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
@@ -601,7 +659,7 @@
                     <li><a href="#dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                     <li><a href="#announcements"><i class="fas fa-bullhorn"></i> Announcements</a></li>
                     <li><a href="#calendar"><i class="fas fa-calendar"></i> Calendar</a></li>
-                    <li><a href="#resources"><i class="fas fa-toolbox"></i> Resources</a></li>
+                    <li><a href="#handbook"><i class="fas fa-book"></i> Handbook</a></li>
                 </ul>
             </div>
         </div>
@@ -678,7 +736,7 @@
                         </div>
                     </div>
                     <div class="announcement-body">
-                        <p>Updated staff guidelines have been published. All staff members must review the new documentation by end of week.</p>
+                        <p>Updated staff guidelines have been published. All staff members must review the new documentation by end of week. The updated guidelines include new procedures for handling community reports and updated disciplinary measures.</p>
                     </div>
                     <div class="announcement-actions">
                         <span class="badge badge-primary">Important</span>
@@ -694,7 +752,7 @@
                         </div>
                     </div>
                     <div class="announcement-body">
-                        <p>Monthly staff meeting scheduled for Friday at 7 PM EST. Attendance is mandatory for all department heads.</p>
+                        <p>Monthly staff meeting scheduled for Friday at 7 PM EST. Attendance is mandatory for all department heads. We will be discussing upcoming community events, policy changes, and department performance reviews.</p>
                     </div>
                     <div class="announcement-actions">
                         <span class="badge badge-warning">Meeting</span>
@@ -710,7 +768,7 @@
                         </div>
                     </div>
                     <div class="announcement-body">
-                        <p>New infraction tracking system implemented. All staff must familiarize themselves with the new procedures.</p>
+                        <p>New infraction tracking system implemented. All staff must familiarize themselves with the new procedures. The updated system includes automated notifications, streamlined reporting, and improved tracking of disciplinary actions.</p>
                     </div>
                     <div class="announcement-actions">
                         <span class="badge badge-primary">System</span>
@@ -793,12 +851,12 @@
             </div>
         </section>
 
-        <!-- Resources -->
-        <section id="resources" class="section">
+        <!-- Handbook Section -->
+        <section id="handbook" class="section">
             <div class="section-header">
-                <h2 class="section-title"><i class="fas fa-toolbox"></i> Staff Resources</h2>
-                <a href="http://floridaadmin.online/Resources" class="btn btn-outline" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> All Resources
+                <h2 class="section-title"><i class="fas fa-book"></i> Staff Handbook</h2>
+                <a href="http://floridaadmin.online/Handbook" class="btn btn-outline" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> View Full Handbook
                 </a>
             </div>
             <div class="resources-grid">
@@ -807,9 +865,9 @@
                         <i class="fas fa-book"></i>
                     </div>
                     <div class="resource-body">
-                        <h3 class="resource-title">Staff Handbook</h3>
-                        <p class="resource-desc">Complete guide to staff policies, procedures, and expectations.</p>
-                        <a href="http://floridaadmin.online/Resources" class="btn btn-primary" target="_blank">View Document</a>
+                        <h3 class="resource-title">Complete Staff Handbook</h3>
+                        <p class="resource-desc">Comprehensive guide to all staff policies, procedures, code of conduct, disciplinary measures, and community guidelines.</p>
+                        <a href="http://floridaadmin.online/Handbook" class="btn btn-primary" target="_blank">Access Handbook</a>
                     </div>
                 </div>
                 <div class="resource-card">
@@ -817,19 +875,19 @@
                         <i class="fas fa-clipboard-list"></i>
                     </div>
                     <div class="resource-body">
-                        <h3 class="resource-title">Infraction Forms</h3>
-                        <p class="resource-desc">Templates and procedures for staff infractions and disciplinary actions.</p>
-                        <a href="http://floridaadmin.online/Resources" class="btn btn-primary" target="_blank">Access Forms</a>
+                        <h3 class="resource-title">Infraction Procedures</h3>
+                        <p class="resource-desc">Detailed procedures for handling staff infractions, disciplinary actions, and reporting protocols.</p>
+                        <a href="http://floridaadmin.online/Handbook#infractions" class="btn btn-primary" target="_blank">View Procedures</a>
                     </div>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
                     <div class="resource-body">
-                        <h3 class="resource-title">Performance Metrics</h3>
-                        <p class="resource-desc">Dashboards and tools for tracking staff performance and activity.</p>
-                        <a href="http://floridaadmin.online/ReportStaff" class="btn btn-primary" target="_blank">View Metrics</a>
+                        <h3 class="resource-title">Training Materials</h3>
+                        <p class="resource-desc">Resources for staff training, onboarding procedures, and ongoing professional development.</p>
+                        <a href="http://floridaadmin.online/Handbook#training" class="btn btn-primary" target="_blank">Access Training</a>
                     </div>
                 </div>
             </div>
@@ -842,7 +900,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Florida State Roleplay</h3>
-                    <p>Professional roleplay community dedicated to providing authentic Florida-based experiences.</p>
+                    <p>Professional roleplay community dedicated to providing authentic Florida-based experiences with a focus on quality and immersive gameplay.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
@@ -856,7 +914,7 @@
                 <div class="footer-section">
                     <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="http://floridaadmin.online/Resources" target="_blank">Staff Resources</a></li>
+                        <li><a href="http://floridaadmin.online/Handbook" target="_blank">Staff Handbook</a></li>
                         <li><a href="http://floridaadmin.online/Calendar" target="_blank">Calendar</a></li>
                         <li><a href="http://floridaadmin.online/ReportStaff" target="_blank">Report Staff</a></li>
                         <li><a href="http://floridaadmin.online/investigations" target="_blank">Investigations</a></li>
@@ -867,12 +925,13 @@
                     <ul class="footer-links">
                         <li><a href="https://discord.gg/H6uDaMPHE6" target="_blank"><i class="fab fa-discord"></i> Discord Server</a></li>
                         <li><a href="https://discord.com/channels/1418402731994906718/1418402734025081041" target="_blank"><i class="fas fa-life-ring"></i> Community Support</a></li>
+                        <li><a href="http://floridaadmin.online/Contact" target="_blank"><i class="fas fa-envelope"></i> Administrative Contact</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Florida State Roleplay - Discord Administrative Board. All rights reserved.</p>
-                <p>Portal Version 2.1 | Updated: November 2025</p>
+                <p>Portal Version 2.2 | Updated: November 2025</p>
             </div>
         </div>
     </footer>
