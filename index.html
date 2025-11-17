@@ -9,23 +9,23 @@
     <style>
         /* ===== ROOT VARIABLES ===== */
         :root {
-            --primary: #1e3a8a;
-            --primary-dark: #1e40af;
-            --primary-light: #3b82f6;
-            --secondary: #f59e0b;
-            --secondary-dark: #d97706;
-            --accent: #dc2626;
-            --accent-light: #ef4444;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #dc2626;
-            --info: #3b82f6;
-            --light: #f8fafc;
-            --light-alt: #e2e8f0;
-            --dark: #1e293b;
-            --dark-alt: #334155;
-            --gray: #64748b;
-            --gray-light: #cbd5e1;
+            --primary: #ff9800;
+            --primary-dark: #e65100;
+            --primary-light: #ffb74d;
+            --secondary: #ffeb3b;
+            --secondary-dark: #fbc02d;
+            --accent: #ff5722;
+            --accent-light: #ff8a65;
+            --success: #4caf50;
+            --warning: #ffc107;
+            --danger: #f44336;
+            --info: #2196f3;
+            --light: #fffde7;
+            --light-alt: #fff9c4;
+            --dark: #212121;
+            --dark-alt: #424242;
+            --gray: #757575;
+            --gray-light: #bdbdbd;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
             --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
@@ -65,9 +65,9 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 50% 50%, rgba(220, 38, 38, 0.03) 0%, transparent 30%);
+                radial-gradient(circle at 10% 20%, rgba(255, 235, 59, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 152, 0, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(255, 87, 34, 0.05) 0%, transparent 30%);
             z-index: -1;
             pointer-events: none;
         }
@@ -81,7 +81,7 @@
 
         /* ===== HEADER & NAVIGATION ===== */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             padding: 0;
             box-shadow: var(--shadow-xl);
             position: sticky;
@@ -286,14 +286,14 @@
 
         .section-title {
             font-size: 1.5rem;
-            color: var(--primary);
+            color: var(--primary-dark);
             display: flex;
             align-items: center;
         }
 
         .section-title i {
             margin-right: 10px;
-            color: var(--secondary);
+            color: var(--accent);
         }
 
         .section-actions {
@@ -364,7 +364,7 @@
         }
 
         .staff-table tr:hover {
-            background: rgba(59, 130, 246, 0.05);
+            background: rgba(255, 152, 0, 0.05);
         }
 
         .staff-avatar {
@@ -389,23 +389,23 @@
         }
 
         .badge-success {
-            background: rgba(16, 185, 129, 0.1);
+            background: rgba(76, 175, 80, 0.1);
             color: var(--success);
         }
 
         .badge-warning {
-            background: rgba(245, 158, 11, 0.1);
+            background: rgba(255, 193, 7, 0.1);
             color: var(--warning);
         }
 
         .badge-danger {
-            background: rgba(220, 38, 38, 0.1);
+            background: rgba(244, 67, 54, 0.1);
             color: var(--danger);
         }
 
         .badge-primary {
-            background: rgba(30, 58, 138, 0.1);
-            color: var(--primary);
+            background: rgba(255, 152, 0, 0.1);
+            color: var(--primary-dark);
         }
 
         .action-buttons {
@@ -529,7 +529,7 @@
         }
 
         .calendar-day.today {
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(255, 152, 0, 0.1);
         }
 
         .calendar-event {
@@ -543,7 +543,7 @@
         }
 
         .calendar-event.meeting {
-            background: var(--secondary);
+            background: var(--secondary-dark);
         }
 
         .calendar-event.deadline {
@@ -618,7 +618,7 @@
 
         .blacklist-header {
             padding: 20px;
-            background: rgba(220, 38, 38, 0.05);
+            background: rgba(244, 67, 54, 0.05);
             border-bottom: 1px solid var(--light-alt);
         }
 
@@ -898,7 +898,7 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <div class="stat-info">
-                        <h3>42</h3>
+                        <h3>10+</h3>
                         <p>Active Staff Members</p>
                     </div>
                 </div>
@@ -907,8 +907,8 @@
                         <i class="fas fa-check-circle"></i>
                     </div>
                     <div class="stat-info">
-                        <h3>28</h3>
-                        <p>Pending Applications</p>
+                        <h3>15</h3>
+                        <p>Active Applications</p>
                     </div>
                 </div>
                 <div class="stat-card">
@@ -916,7 +916,7 @@
                         <i class="fas fa-exclamation-triangle"></i>
                     </div>
                     <div class="stat-info">
-                        <h3>5</h3>
+                        <h3>6</h3>
                         <p>Active Infractions</p>
                     </div>
                 </div>
@@ -971,6 +971,24 @@
                             <td>
                                 <div class="staff-name">
                                     <img src="https://via.placeholder.com/40" alt="Avatar" class="staff-avatar">
+                                    <span>Elijah | Founder</span>
+                                </div>
+                            </td>
+                            <td>Founder</td>
+                            <td>Executive</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>Dec 10, 2023</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <div class="action-btn"><i class="fas fa-eye"></i></div>
+                                    <div class="action-btn"><i class="fas fa-envelope"></i></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="staff-name">
+                                    <img src="https://via.placeholder.com/40" alt="Avatar" class="staff-avatar">
                                     <span>James | DF</span>
                                 </div>
                             </td>
@@ -980,8 +998,7 @@
                             <td>Jan 15, 2024</td>
                             <td>
                                 <div class="action-buttons">
-                                    <div class="action-btn"><i class="fas fa-edit"></i></div>
-                                    <div class="action-btn"><i class="fas fa-chart-line"></i></div>
+                                    <div class="action-btn"><i class="fas fa-eye"></i></div>
                                     <div class="action-btn"><i class="fas fa-envelope"></i></div>
                                 </div>
                             </td>
@@ -999,8 +1016,7 @@
                             <td>Mar 22, 2024</td>
                             <td>
                                 <div class="action-buttons">
-                                    <div class="action-btn"><i class="fas fa-edit"></i></div>
-                                    <div class="action-btn"><i class="fas fa-chart-line"></i></div>
+                                    <div class="action-btn"><i class="fas fa-eye"></i></div>
                                     <div class="action-btn"><i class="fas fa-envelope"></i></div>
                                 </div>
                             </td>
@@ -1014,12 +1030,11 @@
                             </td>
                             <td>Founder</td>
                             <td>Executive</td>
-                            <td><span class="badge badge-warning">LOA</span></td>
+                            <td><span class="badge badge-warning">Revoked</span></td>
                             <td>Dec 10, 2023</td>
                             <td>
                                 <div class="action-buttons">
-                                    <div class="action-btn"><i class="fas fa-edit"></i></div>
-                                    <div class="action-btn"><i class="fas fa-chart-line"></i></div>
+                                    <div class="action-btn"><i class="fas fa-eye"></i></div>
                                     <div class="action-btn"><i class="fas fa-envelope"></i></div>
                                 </div>
                             </td>
@@ -1070,6 +1085,22 @@
                         <button class="btn btn-outline">View Details</button>
                     </div>
                 </div>
+                <div class="announcement-card">
+                    <div class="announcement-header">
+                        <h3 class="announcement-title">Infraction System Update</h3>
+                        <div class="announcement-meta">
+                            <span><i class="fas fa-user"></i> Taylor</span>
+                            <span><i class="fas fa-clock"></i> 3 days ago</span>
+                        </div>
+                    </div>
+                    <div class="announcement-body">
+                        <p>New infraction tracking system implemented. All staff must familiarize themselves with the new procedures.</p>
+                    </div>
+                    <div class="announcement-actions">
+                        <span class="badge badge-primary">System</span>
+                        <button class="btn btn-outline">View Details</button>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1094,11 +1125,51 @@
                     </div>
                     <div class="blacklist-body">
                         <div class="blacklist-reason">
-                            <strong>Reason:</strong> Department raid, mass ping spam, insubordination, and toxic behavior.
+                            <strong>Reason:</strong> Department raid, mass ping spam (15+ @everyone pings), insubordination, and toxic behavior.
                         </div>
                         <div class="blacklist-meta">
                             <span>Case: DA-BL-001</span>
                             <span>Nov 15, 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="blacklist-card">
+                    <div class="blacklist-header">
+                        <div class="blacklist-user">
+                            <img src="https://via.placeholder.com/50" alt="Avatar" class="blacklist-avatar">
+                            <div>
+                                <h3>@Greenblaz</h3>
+                                <p>Former Staff</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blacklist-body">
+                        <div class="blacklist-reason">
+                            <strong>Reason:</strong> Multiple infractions including sound board spam, failure to follow instructions, and investigation outcome.
+                        </div>
+                        <div class="blacklist-meta">
+                            <span>Case: DA-BL-002</span>
+                            <span>Oct 13, 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="blacklist-card">
+                    <div class="blacklist-header">
+                        <div class="blacklist-user">
+                            <img src="https://via.placeholder.com/50" alt="Avatar" class="blacklist-avatar">
+                            <div>
+                                <h3>@maddie.234</h3>
+                                <p>Former Staff</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blacklist-body">
+                        <div class="blacklist-reason">
+                            <strong>Reason:</strong> Exceeding final strike, DM'ing ownership after warnings, failure to follow orders.
+                        </div>
+                        <div class="blacklist-meta">
+                            <span>Case: DA-BL-003</span>
+                            <span>Oct 27, 2025</span>
                         </div>
                     </div>
                 </div>
@@ -1248,8 +1319,8 @@
                         <i class="fas fa-clipboard-list"></i>
                     </div>
                     <div class="resource-body">
-                        <h3 class="resource-title">Application Forms</h3>
-                        <p class="resource-desc">Templates and forms for staff applications and reviews.</p>
+                        <h3 class="resource-title">Infraction Forms</h3>
+                        <p class="resource-desc">Templates and procedures for staff infractions and disciplinary actions.</p>
                         <button class="btn btn-primary">Access Forms</button>
                     </div>
                 </div>
@@ -1259,8 +1330,50 @@
                     </div>
                     <div class="resource-body">
                         <h3 class="resource-title">Performance Metrics</h3>
-                        <p class="resource-desc">Dashboards and tools for tracking staff performance.</p>
+                        <p class="resource-desc">Dashboards and tools for tracking staff performance and activity.</p>
                         <button class="btn btn-primary">View Metrics</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reports -->
+        <section id="reports" class="section">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-chart-bar"></i> Staff Reports</h2>
+                <div class="section-actions">
+                    <button class="btn btn-primary"><i class="fas fa-download"></i> Export Report</button>
+                </div>
+            </div>
+            <div class="announcements-grid">
+                <div class="announcement-card">
+                    <div class="announcement-header">
+                        <h3 class="announcement-title">Monthly Activity Report</h3>
+                        <div class="announcement-meta">
+                            <span><i class="fas fa-calendar"></i> November 2025</span>
+                        </div>
+                    </div>
+                    <div class="announcement-body">
+                        <p>Comprehensive overview of staff activity, infractions, and performance metrics for the month.</p>
+                    </div>
+                    <div class="announcement-actions">
+                        <span class="badge badge-primary">Report</span>
+                        <button class="btn btn-outline">View Report</button>
+                    </div>
+                </div>
+                <div class="announcement-card">
+                    <div class="announcement-header">
+                        <h3 class="announcement-title">Infraction Analysis</h3>
+                        <div class="announcement-meta">
+                            <span><i class="fas fa-chart-pie"></i> Q4 2025</span>
+                        </div>
+                    </div>
+                    <div class="announcement-body">
+                        <p>Detailed analysis of staff infractions, trends, and disciplinary actions taken.</p>
+                    </div>
+                    <div class="announcement-actions">
+                        <span class="badge badge-warning">Analysis</span>
+                        <button class="btn btn-outline">View Analysis</button>
                     </div>
                 </div>
             </div>
@@ -1278,32 +1391,33 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#dashboard">Dashboard</a></li>
-                        <li><a href="#staff">Staff Management</a></li>
-                        <li><a href="#announcements">Announcements</a></li>
-                        <li><a href="#blacklist">Blacklist</a></li>
+                        <li><a href="http://floridaadmin.online/StaffMembers" target="_blank">Staff Members</a></li>
+                        <li><a href="http://floridaadmin.online/Announcements" target="_blank">Announcements</a></li>
+                        <li><a href="http://floridaadmin.online/Blacklists" target="_blank">Blacklists</a></li>
+                        <li><a href="http://floridaadmin.online/Meetings" target="_blank">Meetings</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="#resources">Staff Resources</a></li>
-                        <li><a href="#calendar">Calendar</a></li>
-                        <li><a href="#meetings">Meetings</a></li>
-                        <li><a href="#reports">Reports</a></li>
+                        <li><a href="http://floridaadmin.online/Resources" target="_blank">Staff Resources</a></li>
+                        <li><a href="http://floridaadmin.online/Calendar" target="_blank">Calendar</a></li>
+                        <li><a href="http://floridaadmin.online/ReportStaff" target="_blank">Report Staff</a></li>
+                        <li><a href="http://floridaadmin.online/investigations" target="_blank">Investigations</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
                     <ul class="footer-links">
                         <li><a href="https://discord.gg/H6uDaMPHE6" target="_blank"><i class="fab fa-discord"></i> Discord Server</a></li>
-                        <li><a href="#"><i class="fas fa-envelope"></i> Admin Support</a></li>
+                        <li><a href="https://discord.com/channels/1418402731994906718/1418402734025081041" target="_blank"><i class="fas fa-life-ring"></i> Community Support</a></li>
                         <li><a href="#"><i class="fas fa-exclamation-circle"></i> Report Issue</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Florida State Roleplay - Discord Administrative Board. All rights reserved.</p>
+                <p>Portal Version 2.1 | Updated: November 2025</p>
             </div>
         </div>
     </footer>
@@ -1346,7 +1460,20 @@
             // Sample data for demonstration
             console.log('FSRP Administrative Board Portal Loaded');
             console.log('Active Features: Staff Management, Announcements, Blacklist, Calendar, Resources');
+            
+            // Update stats based on infraction data
+            updateStatsFromInfractions();
         });
+
+        function updateStatsFromInfractions() {
+            // This would be populated from actual infraction data
+            const activeInfractions = 6; // From the provided data
+            const blacklistedUsers = 3; // From the provided data
+            
+            // Update the stats display
+            document.querySelectorAll('.stat-info h3')[2].textContent = activeInfractions;
+            document.querySelectorAll('.stat-info h3')[3].textContent = blacklistedUsers;
+        }
 
         // Simple form handling for demonstration
         document.querySelectorAll('.btn-primary').forEach(button => {
@@ -1357,6 +1484,15 @@
                     alert(`Administrative Action: ${action}\n\nThis would open a form in a complete implementation.`);
                 }
             });
+        });
+
+        // Export functionality
+        document.querySelectorAll('.btn-outline').forEach(button => {
+            if (button.textContent.includes('Export')) {
+                button.addEventListener('click', function() {
+                    alert('Export functionality would generate and download reports in a complete implementation.');
+                });
+            }
         });
     </script>
 </body>
